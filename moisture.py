@@ -1,13 +1,10 @@
-# Importing modules
-import spidev # To communicate with SPI devices
+import spidev 
 from numpy import interp  # To scale values
-#from time import sleep  # To add delay
 import time
 import os
 
-
-# Start SPI connection
-spi = spidev.SpiDev() # Created an object
+# Open SPI bus
+spi = spidev.SpiDev() 
 spi.open(0,0) 
 
 
@@ -21,7 +18,7 @@ def analogInput(channel):
 
 def MoistureDetect():
   output = analogInput(0) # Reading from CH0
-  output = interp(output, [0, 1023], [100, 0])
+  output = interp(output, [0, 1023], [0, 100])
   output = int(output)/100
   return output,analogInput(0)
 
