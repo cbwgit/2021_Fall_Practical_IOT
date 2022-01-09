@@ -14,6 +14,7 @@ GPIO.setup(3, GPIO.IN)
 
 moistureContent=0.8
 
+# Control
 def moisture(moistureContent):
     output,Moisture=MoistureDetect()
     if output<(moistureContent/100):
@@ -25,7 +26,6 @@ def moisture(moistureContent):
         lineMessage('no need ')
 
 # Flask constructor
-
 app = Flask(__name__)
 
 
